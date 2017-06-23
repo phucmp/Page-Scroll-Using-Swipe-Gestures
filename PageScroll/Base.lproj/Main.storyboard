@@ -24,6 +24,7 @@
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Sky" translatesAutoresizingMaskIntoConstraints="NO" id="kUe-7g-7Ru">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <gestureRecognizers/>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Sun" translatesAutoresizingMaskIntoConstraints="NO" id="gNj-Ym-4Pq">
                                 <rect key="frame" x="241" y="28" width="110" height="107"/>
@@ -38,7 +39,7 @@
                                     <constraint firstAttribute="height" constant="211" id="7Fr-Ky-a6C"/>
                                 </constraints>
                             </imageView>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Div-ON-zL0">
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Div-ON-zL0">
                                 <rect key="frame" x="77.5" y="0.0" width="220" height="667"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="220" id="BSc-9g-pmm"/>
@@ -46,6 +47,7 @@
                             </scrollView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <gestureRecognizers/>
                         <constraints>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="kUe-7g-7Ru" secondAttribute="bottom" id="26u-W8-Jy0"/>
                             <constraint firstItem="gNj-Ym-4Pq" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="8" id="DOM-vH-rK1"/>
@@ -60,12 +62,26 @@
                             <constraint firstItem="Div-ON-zL0" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="syB-TV-VT6"/>
                             <constraint firstAttribute="trailing" secondItem="kUe-7g-7Ru" secondAttribute="trailing" id="xyQ-bm-W06"/>
                         </constraints>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="9x3-Qb-4Lp" appends="YES" id="7wg-Nl-aKr"/>
+                            <outletCollection property="gestureRecognizers" destination="tUK-Qp-RQB" appends="YES" id="u0v-FU-miU"/>
+                        </connections>
                     </view>
                     <connections>
                         <outlet property="ScrollView" destination="Div-ON-zL0" id="vai-nw-7S8"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <swipeGestureRecognizer direction="right" id="9x3-Qb-4Lp" userLabel="Swipe Gesture Recognizer Right">
+                    <connections>
+                        <action selector="RightSwipe:" destination="BYZ-38-t0r" id="uul-iJ-1hU"/>
+                    </connections>
+                </swipeGestureRecognizer>
+                <swipeGestureRecognizer direction="left" id="tUK-Qp-RQB" userLabel="Swipe Gesture Recognizer Left">
+                    <connections>
+                        <action selector="LeftSwipe:" destination="BYZ-38-t0r" id="K33-nQ-vNq"/>
+                    </connections>
+                </swipeGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="136.80000000000001" y="137.18140929535232"/>
         </scene>

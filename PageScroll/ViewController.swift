@@ -12,6 +12,7 @@ class ViewController: UIViewController {
 
     @IBOutlet weak var ScrollView: UIScrollView!
     var images = [UIImageView]()
+    var currentPos: CGFloat = 0.0
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -39,6 +40,26 @@ class ViewController: UIViewController {
         
         ScrollView.clipsToBounds = false
         ScrollView.contentSize = CGSize(width: contentWidth, height: view.frame.size.height)
+    }
+
+    @IBAction func RightSwipe(_ sender: Any) {
+        if currentPos != (ScrollView.frame.size.width * CGFloat(images.count - 1)) {
+            currentPos += ScrollView.frame.size.width
+        }
+        
+        let posRight = CGRect(x: currentPos, y: 0.0, width: ScrollView.frame.size.width, height: ScrollView.frame.size.height)
+        
+        ScrollView.scrollRectToVisible(posRight, animated: true)
+    }
+    
+    @IBAction func LeftSwipe(_ sender: Any) {
+        if currentPos != 0 {
+            currentPos -= ScrollView.frame.size.width
+        }
+        
+        let posRight = CGRect(x: currentPos, y: 0.0, width: ScrollView.frame.size.width, height: ScrollView.frame.size.height)
+        
+        ScrollView.scrollRectToVisible(posRight, animated: true)
     }
 
 }
